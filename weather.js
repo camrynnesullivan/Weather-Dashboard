@@ -10,30 +10,21 @@ $(document).ready(() => {
 
 var searchBtn = $("#current-weather");
 var citiesArr = [];
-//FUNCTIONS====================================================
-// var searchHistory = ["Dallas", "Mexico City"];   $(document).ready(() => {
+//FUNCTIONS===================================================
 
-//  displayHistory();
-//   $("#searchCity").on("submit", searchCity);
-//   });
+//A users search history is saved
+// function retrieveInfo() {
+//   citiesArr = JSON.parse(localStorage.getItem([“city name:“]));
+//   console.log(citiesArr);
+//   var noDuplicatesArr = [...new Set(citiesArr)];
+//   for (var i = 0; i < noDuplicatesArr.length; i++) {
+//     var pTag = $(“<p>“);
+//     pTag.text(noDuplicatesArr[i]);
+//     $(“.search-history”).append(pTag);
+//   }
+// };
 
-//    function displayHistory() {
-//    $("#history").empty();
-//   for (var i = 0; i < searchHistory.length; i++) {
-//    var cityDiv = $("<div>");
-//   cityDiv.addClass("list-group-item");
-//   cityDiv.text(searchHistory[i]);
-//    $("#history").append(cityDiv);
-//   }
-//   }
-//   //user inputs search
-//  function searchCity(event) {
-//   event.preventDefault();
-//  //API STUFF
-//   var cityName = $("#cityName").val();
-//   searchHistory.unshift(cityName);
-//    displayHistory();
-//    $("#cityName").val("");
+// retrieveInfo();
 
 //USER INPUT===================================================
 //A user types a city
@@ -123,7 +114,7 @@ searchBtn.on("click", function (event) {
   });
 
   // 5 Day Forecast
-
+  //They also see the 5 day forecast of their city that they searched
   var queryURLForecast =
     "http://api.openweathermap.org/data/2.5/forecast?q=" +
     citySearch +
@@ -138,84 +129,63 @@ searchBtn.on("click", function (event) {
     console.log(response);
 
     // day one
-    var firstDay = moment(response.list[0].dt_txt).format("dddd MMMM Do YYYY");
+    var firstDay = moment(response.list[3].dt_txt).format("dddd MMMM Do YYYY");
     $("#one").text(firstDay);
     console.log(firstDay);
-    var iconCode = response.list[0].weather[0].icon;
+    var iconCode = response.list[3].weather[0].icon;
     var weatherIcon = "http://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(iconCode);
     $("#weather-icon-one").attr("src", weatherIcon);
-    $("#temperature-one").text(response.list[0].main.temp);
-    $("#humidity-one").text(response.list[0].main.humidity);
+    $("#temperature-one").text(response.list[3].main.temp);
+    $("#humidity-one").text(response.list[3].main.humidity);
 
     // day two
-    var secondDay = moment(response.list[8].dt_txt).format("dddd MMMM Do YYYY");
+    var secondDay = moment(response.list[11].dt_txt).format(
+      "dddd MMMM Do YYYY"
+    );
     $("#two").text(secondDay);
     console.log(secondDay);
-    var iconCode = response.list[8].weather[0].icon;
+    var iconCode = response.list[11].weather[0].icon;
     var weatherIcon = "http://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(iconCode);
     $("#weather-icon-two").attr("src", weatherIcon);
-    $("#temperature-two").text(response.list[8].main.temp);
-    $("#humidity-two").text(response.list[8].main.humidity);
+    $("#temperature-two").text(response.list[11].main.temp);
+    $("#humidity-two").text(response.list[11].main.humidity);
 
     // day three
-    var thirdDay = moment(response.list[16].dt_txt).format("dddd MMMM Do YYYY");
+    var thirdDay = moment(response.list[19].dt_txt).format("dddd MMMM Do YYYY");
     $("#three").text(thirdDay);
     console.log(thirdDay);
-    var iconCode = response.list[16].weather[0].icon;
+    var iconCode = response.list[19].weather[0].icon;
     var weatherIcon = "http://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(iconCode);
     $("#weather-icon-three").attr("src", weatherIcon);
-    $("#temperature-three").text(response.list[16].main.temp);
-    $("#humidity-three").text(response.list[16].main.humidity);
+    $("#temperature-three").text(response.list[19].main.temp);
+    $("#humidity-three").text(response.list[19].main.humidity);
 
     // day four
-    var fourthDay = moment(response.list[24].dt_txt).format(
-      "dddd MMMM Do YYYY"
-    );
+    var fourthDay = moment(response.list[27].t_txt).format("dddd MMMM Do YYYY");
     $("#four").text(fourthDay);
     console.log(fourthDay);
-    var iconCode = response.list[24].weather[0].icon;
+    var iconCode = response.list[27].weather[0].icon;
     var weatherIcon = "http://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(iconCode);
     $("#weather-icon-four").attr("src", weatherIcon);
-    $("#temperature-four").text(response.list[24].main.temp);
-    $("#humidity-four").text(response.list[24].main.humidity);
+    $("#temperature-four").text(response.list[27].main.temp);
+    $("#humidity-four").text(response.list[27].main.humidity);
 
     // day five
-    var fiveDay = moment(response.list[32].dt_txt).format("dddd MMMM Do YYYY");
+    var fiveDay = moment(response.list[35].dt_txt).format("dddd MMMM Do YYYY");
     $("#five").text(fiveDay);
     console.log(fiveDay);
-    var iconCode = response.list[32].weather[0].icon;
+    var iconCode = response.list[35].weather[0].icon;
     var weatherIcon = "http://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(iconCode);
     $("#weather-icon-five").attr("src", weatherIcon);
-    $("#temperature-five").text(response.list[32].main.temp);
-    $("#humidity-five").text(response.list[32].main.humidity);
-
-    // // Date
-    // var date = moment();
-    // var dateDisplay = date.format("dddd MMMM Do YYYY");
-    // $("#date").text(dateDisplay);
-    // console.log("Date Display:", dateDisplay);
-    // // Icon
-    // var iconCode = response.weather[0].icon;
-    // var weatherIcon = "http://openweathermap.org/img/w/" + iconCode + ".png";
-    // console.log(iconCode);
-    // $("#weather-icon").attr("src", weatherIcon);
-    // // Temp
-    // var temperature = response.main.temp;
-    // $("#temperature").text(temperature);
-    // console.log("Temperature:", temperature);
-    // // Humidity
-    // var humidity = response.main.humidity;
-    // $("#humidity").text(humidity);
-    // console.log("Humidity", humidity);
+    $("#temperature-five").text(response.list[35].main.temp);
+    $("#humidity-five").text(response.list[35].main.humidity);
   });
 });
-
-// http://api.openweathermap.org/data/2.5/forecast?q=
 
 //A users search history is saved
 
