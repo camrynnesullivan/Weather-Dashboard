@@ -1,5 +1,9 @@
 # 06 Server-Side APIs: Weather Dashboard
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a35f6e69651a0b68e92ff2a62cfdc5844de51020
 In this project I created a Weather Dashboard so that when a...
 //A user types a city
 //A user submits their search
@@ -22,4 +26,9 @@ I am currently working on getting the local storage up and running. I would like
 //If the user searches for another city, then their past city search is saved
 //The user can click on past city searches and view the weather
 
+<<<<<<< HEAD
 ![weather dashboard](Homework-6-Weather Dashboard\02-Homework\Weather-Dashboard.png)
+=======
+![weather dashboard](Weather-Dashboard.png)
+
+>>>>>>> a35f6e69651a0b68e92ff2a62cfdc5844de51020
