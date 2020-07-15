@@ -23,5 +23,5 @@ I am currently working on getting the local storage up and running. I would like
 //If the user searches for another city, then their past city search is saved
 //The user can click on past city searches and view the weather
 
-![weather dashboard](Homework-6-Weather Dashboard\02-Homework\Weather-Dashboard.png)
+![weather dashboard](Weather-Dashboard.png)
 
