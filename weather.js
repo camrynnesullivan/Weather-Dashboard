@@ -46,7 +46,7 @@ searchBtn.on("click", function (event) {
     searchHistory.currentDate = dateDisplay;
     // Icon
     var iconCode = response.weather[0].icon;
-    var weatherIcon = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    var weatherIcon = "https://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(iconCode);
     $("#weather-icon").attr("src", weatherIcon);
     searchHistory.weatherIcon = weatherIcon;
