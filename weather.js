@@ -23,7 +23,7 @@ searchBtn.on("click", function (event) {
   console.log("City Search:", citySearch);
   var apiKey = "14f6ccf6c898c0ddda97eb93508451eb";
   var queryURLCurrent =
-    " http://api.openweathermap.org/data/2.5/weather?q=" +
+    " https://api.openweathermap.org/data/2.5/weather?q=" +
     citySearch +
     "&units=imperial&appid=" +
     apiKey;
@@ -69,7 +69,7 @@ searchBtn.on("click", function (event) {
     var latitude = response.coord.lat;
     var longitude = response.coord.lon;
     var uvURL =
-      "http://api.openweathermap.org/data/2.5/uvi?appid=" +
+      "https://api.openweathermap.org/data/2.5/uvi?appid=" +
       apiKey +
       "&lat=" +
       latitude +
@@ -105,7 +105,7 @@ searchBtn.on("click", function (event) {
       // 5 Day Forecast
       //They also see the 5 day forecast of their city that they searched
       var queryURLForecast =
-        "http://api.openweathermap.org/data/2.5/forecast?q=" +
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
         citySearch +
         "&units=imperial&appid=" +
         apiKey;
@@ -125,7 +125,7 @@ searchBtn.on("click", function (event) {
         console.log(firstDay);
         var iconCode = response.list[3].weather[0].icon;
         var weatherIcon =
-          "http://openweathermap.org/img/w/" + iconCode + ".png";
+          "https://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#weather-icon-one").attr("src", weatherIcon);
         $("#temperature-one").text(response.list[3].main.temp);
@@ -145,7 +145,7 @@ searchBtn.on("click", function (event) {
         console.log(secondDay);
         var iconCode = response.list[11].weather[0].icon;
         var weatherIcon =
-          "http://openweathermap.org/img/w/" + iconCode + ".png";
+          "https://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#weather-icon-two").attr("src", weatherIcon);
         $("#temperature-two").text(response.list[11].main.temp);
@@ -165,7 +165,7 @@ searchBtn.on("click", function (event) {
         console.log(thirdDay);
         var iconCode = response.list[19].weather[0].icon;
         var weatherIcon =
-          "http://openweathermap.org/img/w/" + iconCode + ".png";
+          "https://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#weather-icon-three").attr("src", weatherIcon);
         $("#temperature-three").text(response.list[19].main.temp);
@@ -185,7 +185,7 @@ searchBtn.on("click", function (event) {
         console.log(fourthDay);
         var iconCode = response.list[27].weather[0].icon;
         var weatherIcon =
-          "http://openweathermap.org/img/w/" + iconCode + ".png";
+          "https://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#weather-icon-four").attr("src", weatherIcon);
         $("#temperature-four").text(response.list[27].main.temp);
@@ -205,7 +205,7 @@ searchBtn.on("click", function (event) {
         console.log(fiveDay);
         var iconCode = response.list[35].weather[0].icon;
         var weatherIcon =
-          "http://openweathermap.org/img/w/" + iconCode + ".png";
+          "https://openweathermap.org/img/w/" + iconCode + ".png";
         console.log(iconCode);
         $("#weather-icon-five").attr("src", weatherIcon);
         $("#temperature-five").text(response.list[35].main.temp);
